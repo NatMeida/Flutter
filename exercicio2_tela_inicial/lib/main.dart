@@ -38,18 +38,9 @@ class MyApp extends StatelessWidget {
                   child: Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
-                          "Bem vindo ao aplicativo de encomendas da Pizzaria Forno à Lenha!", textAlign: TextAlign.center, style: TextStyle(fontSize: 16),)),
+                          "Bem vindo(a) ao aplicativo de encomendas da Pizzaria Forno à Lenha!", textAlign: TextAlign.center, style: TextStyle(fontSize: 16),)),
                 ),
               SizedBox(height: 10),
-            
-             //DecoratedBox(
-             //   decoration: BoxDecoration(),
-             //   child: Padding(
-             //     padding: EdgeInsets.all(15),
-             //     child: Text("Só na Forno à Lenha você garante: "),
-             //   ),
-             //),
-             //SizedBox(height: 10),
 
               MyWidget("Ingredientes de alta qualidade", Colors.green),
 
