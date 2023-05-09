@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/conta_numeros.dart';
 
 class Contador extends StatefulWidget {
   const Contador({super.key});
@@ -8,14 +9,14 @@ class Contador extends StatefulWidget {
 }
 
 class _ContadorState extends State<Contador> {
-  int contador = 0;
+  MyContador contador = MyContador();
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         FloatingActionButton(
-            onPressed: () => setState(() => contador--),
+            onPressed: () => setState(() => contador.aumentar()), 
             child: const Text("-", style: TextStyle(fontSize: 30))),
         const SizedBox(width: 10),
         DecoratedBox(
@@ -33,11 +34,11 @@ class _ContadorState extends State<Contador> {
                 ))),
         const SizedBox(width: 10),
         FloatingActionButton(
-            onPressed: () => setState(() => contador++),
+            onPressed: () => setState(() => contador.diminuir()),
             child: const Text("+", style: TextStyle(fontSize: 30))),
       ]),
       const SizedBox(height: 10),
-      Text('O valor do contador é:  $contador',
+      Text('O valor do contador é:  ${contador.getNumero()}',
           style: const TextStyle(fontSize: 22))
     ]);
   }
