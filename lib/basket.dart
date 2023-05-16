@@ -5,18 +5,16 @@ class Basket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Basket"),
-            ElevatedButton(onPressed: (() {
-              Navigator.pushNamed(context, '/');
-            }),
-            child: Text("Voltar"))
-          ]
-        ),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text("Basket"),
+          ElevatedButton(onPressed: (() {
+            Navigator.pushNamed(context, '/');
+          }),
+          child: const Text("Voltar"))
+        ]
       ),
     );
   }

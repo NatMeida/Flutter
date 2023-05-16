@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:navegacao_paginas/person.dart';
+
+import 'basket.dart';
+import 'favorite.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,24 +17,17 @@ class _HomeState extends State<Home> {
   //atributo
   int _indice = 0;
 
+  final List<Widget> _telas = [
+    Person(),
+    Basket(),
+    Favorite()
+  ];
+
   //método
   void _itemClicado(int index){
-    
     setState(() {
       _indice = index;
     });
-
-    switch (index){
-      case 0:
-        Navigator.pushNamed(context, '/person');
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/basket');
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/favorite');
-        break;
-    }
   }
 
   @override
@@ -59,6 +56,7 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
+      body: _telas[_indice],
       bottomNavigationBar: BottomNavigationBar (
         currentIndex: _indice,
         onTap: _itemClicado,
