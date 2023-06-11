@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: const Center(
-        child: Text("eu amo a tania")
+        child: Text("Eu amo a Tânia", style: TextStyle(fontSize: 30, color: Colors.pink))
       ),
     );
   }

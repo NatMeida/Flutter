@@ -52,8 +52,18 @@ class _CalculadoraState extends State<Calculadora> {
       child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const Text("Calculadora Rosa",
-          textAlign: TextAlign.center,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.calculate, color: Colors.pink, size: 100),
+            Text("Calculadora Rosa",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Color.fromARGB(255, 244, 143, 177)
+              ),
+            ),
+          ]
         ),
         TextField(
           controller: valor1,
@@ -61,7 +71,7 @@ class _CalculadoraState extends State<Calculadora> {
             labelText: "Valor 1",
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(4)),
-              borderSide: BorderSide(width: 4)
+              borderSide: BorderSide(width: 4),
             )
           )
         ),
@@ -72,7 +82,8 @@ class _CalculadoraState extends State<Calculadora> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(4)),
               borderSide: BorderSide(width: 4)
-            )
+            ),
+            fillColor: Color.fromARGB(255, 244, 143, 177),
           )
         ),
         Row(
@@ -128,7 +139,7 @@ class _CalculadoraState extends State<Calculadora> {
             ),
           ]
         ),
-        Text("Resultado:  $resultado")
+        Text("Resultado:  $resultado", style: const TextStyle(fontSize: 20, color: Colors.pink)),
       ],
     ));
   }

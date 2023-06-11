@@ -9,10 +9,13 @@ class CalculadoraPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Calculadorinha"),
-        backgroundColor: Colors.pink[200],
+        backgroundColor: Color.fromARGB(255, 244, 143, 177),
       ),
-      body: const Center(
-        child: Calculadora()
+      body: const Scaffold(
+        backgroundColor: Color.fromARGB(255, 239, 205, 216),
+        body: Center(
+          child: Calculadora()
+        ),
       )
     );
   }
