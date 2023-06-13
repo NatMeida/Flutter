@@ -17,8 +17,6 @@ class _CadastroState extends State<Cadastro> {
   TextEditingController campoRA = TextEditingController();
   TextEditingController campoNome = TextEditingController();
 
-  AlunoRepository listaAl = AlunoRepository();
-
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -36,8 +34,8 @@ class _CadastroState extends State<Cadastro> {
               ra = int.parse(campoRA.text);
               nome = campoNome.text;
               Aluno al = Aluno(ra, nome);
-              listaAl.adicionar(al);
-              listaAl.imprimir();
+              AlunoRepository.adicionar(al);
+              AlunoRepository.imprimir();
               setState(() {});
             });
           },

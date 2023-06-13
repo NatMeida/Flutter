@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/consulta.dart';
 import 'package:flutter_application_1/components/page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class ConsultaPage extends StatelessWidget {
+  const ConsultaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppPage(context,
-      title: "Home",
+      title: "Consulta",
       body: const Center(
-        child: Text("Eu amo a Tânia!")
+        child: Consulta()
       )
     );
   }

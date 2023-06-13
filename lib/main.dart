@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/cadastro.dart';
+import 'package:flutter_application_1/pages/consulta.dart';
 import 'package:flutter_application_1/pages/home.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/cadastro': (context) => const CadastroPage(),
+        '/consulta': (context) => const ConsultaPage(),
       },
     );
   }

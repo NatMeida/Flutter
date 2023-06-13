@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/aluno_repository.dart';
+import 'package:flutter_application_1/components/page.dart';
 import 'package:flutter_application_1/form_cadastro.dart';
-
-import '../aluno.dart';
 
 class CadastroPage extends StatefulWidget {
   const CadastroPage({super.key});
@@ -22,10 +21,11 @@ class _CadastroPageState extends State<CadastroPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-          child: Cadastro()
-      ),
+    return AppPage(context,
+      title: "Cadastro",
+      body: const Center(
+        child: Cadastro(),
+      )
     );
   }
 }
