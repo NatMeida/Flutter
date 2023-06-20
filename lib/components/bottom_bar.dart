@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-const RouteIndex = {
+const routeIndex = {
   '/': 0,
   '/cadastro': 1,
-  '/consulta': 2,
+  '/consulta': 2
 };
 
 class BottomBar extends BottomNavigationBar {
@@ -37,6 +37,6 @@ class BottomBar extends BottomNavigationBar {
         )
       ),
     ],
-    currentIndex: RouteIndex[ModalRoute.of(context)?.settings.name] ?? 0,
+    currentIndex: routeIndex[ModalRoute.of(context)?.settings.name] ?? 0,
   );
 }

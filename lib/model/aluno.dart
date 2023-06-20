@@ -11,10 +11,13 @@ class Aluno{
   //getters
   int get ra => _ra;
   String get nome => _nome;
+
   //setters
   set ra(int ra) => _ra = ra;
   set nome(String nome) => _nome = nome;
 
-  
-
+  @override
+  String toString() {
+    return "RA: $_ra\nNome: $_nome";
+  }
 }

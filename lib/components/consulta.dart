@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/aluno_repository.dart';
+import 'package:flutter_application_1/components/consulta_item.dart';
+import 'package:flutter_application_1/controller/repository.dart';
 
-class Consulta extends StatelessWidget {
-  const Consulta({super.key});
+class Consulta<T> extends StatelessWidget {
+  final Repository<T> _repo;
+
+  const Consulta(this._repo, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: AlunoRepository.getLista()
-        .map((e) => Text("Nome: ${e.nome}, RA: ${e.ra}")).toList()
+    return SingleChildScrollView(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: _repo.list.map((el) => ItemConsulta(child: el)).toList()),
     );
   }
 }
