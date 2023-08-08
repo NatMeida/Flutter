@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/form.dart';
 import 'package:flutter_application_1/components/page.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
     return AppPage(context,
       title: "Home",
       body: const Center(
-        child: Text("Eu amo a Tânia!")
+        child: FormCadastro()
       )
     );
   }

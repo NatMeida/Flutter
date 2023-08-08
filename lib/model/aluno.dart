@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, unnecessary_getters_setters
 
 class Aluno{
   //atributos
