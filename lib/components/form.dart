@@ -57,6 +57,10 @@ class _FormCadastroState extends State<FormCadastro> {
 
               return null;
             },
+            decoration: const InputDecoration(
+              labelText: "Nome",
+              prefixIcon: Icon(Icons.abc)
+            ),
           ),
           ElevatedButton(
             onPressed: () {
