@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/model/usuariorepository.dart';
+import 'package:flutter_application_1/model/usuario.dart';
+import 'package:flutter_application_1/telaInicial.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +13,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //Declaração de variáveis e controllers
+    String usuarioForm = "";
+    String senhaForm = "";
+    TextEditingController usuarioTEC = TextEditingController();
+    TextEditingController senhaTEC = TextEditingController();
+    GlobalKey<FormState> key = GlobalKey<FormState>();
+
+    //Aviso de login incorreto
+    void _showDialog(){
+      showDialog(
+        context: context,
+        builder: (context){
+          return CupertinoAlertDialog(
+            title: Text("Erro de login"),
+            content: Text("Usuário e/ou senha incorretos!"),
+            actions: [ 
+              MaterialButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                child: Text("Ok")
+              )
+            ]
+          );
+        }
+      );
+    }
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -35,7 +68,7 @@ class MyApp extends StatelessWidget {
                     DecoratedBox(decoration: BoxDecoration(color: Color.fromARGB(255, 90, 43, 100),), child: SizedBox(width: 500, height: 5, ),),
                     SizedBox(height: 20,),
                     TextFormField(
-                      //controller: campoUsuario,
+                      controller: usuarioTEC,
                       validator: (value) {
                          if (value!.isEmpty){
                           return ("Insira o nome de usuário para efetuar login.");
@@ -54,12 +87,13 @@ class MyApp extends StatelessWidget {
                     SizedBox(height: 20,),
 
                     TextFormField(
-                      //controller: campoUsuario,
+                      controller: senhaTEC,
+                      obscureText: true,
                       validator: (value) {
                          if (value!.isEmpty){
                           return ("Insira a senha para efetuar login.");
                          } else {
-                          if (9 < 4){
+                          if (senhaTEC.text.length < 4){
                             return ("A senha deve conter ao menos 4 caracteres");
                           }
                          }
@@ -76,17 +110,26 @@ class MyApp extends StatelessWidget {
 
                     SizedBox(height: 20,),
                     
-                    ElevatedButton(onPressed: (){
+                    ElevatedButton(
+                      onPressed: (){
+                        if (key.currentState!.validate()) {
+                          usuarioForm = usuarioTEC.text;
+                          senhaForm = senhaTEC.text;
+
+                          if (usuarios.any((element) => element.usuario == usuarioForm && element.senha == senhaForm)){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => TelaInicial()));
+                          } 
+                        } else {
+                            _showDialog();
+                          }
                       
                     },
                      child: Text("Entrar", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
                     )
                   ]
                   ),
-                  )
-                  )
-
-
+                )
+              )
             ],
           )
         )
