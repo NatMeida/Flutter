@@ -1,5 +1,4 @@
-class Usuario{
-
+class Usuario {
   String usuario;
   String senha;
 
